@@ -17,11 +17,11 @@ notifications:
 install:
   - cd ./HTTPServer
   - nuget restore ./HTTPServer.sln # restore nuget
-  - nuget install NUnit.Runners -Version 3.8.0 -OutputDirectory ./TestRunner # install nunit
+#  - nuget install NUnit.Runners -Version 3.8.0 -OutputDirectory ./TestRunner # install nunit
 
 script:
   - msbuild /p:Configuration=Release HTTPServer.sln
-  - mono ./TestRunner/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./HTTPServerLib.UnitTest/bin/Release/HttpServerLib.UnitTest.dll
+#  - mono ./TestRunner/NUnit.ConsoleRunner.3.8.0/tools/nunit3-console.exe ./HTTPServerLib.UnitTest/bin/Release/HttpServerLib.UnitTest.dll
   - sonar-scanner -Dsonar.verbose=true -X
 
 branches:
@@ -31,7 +31,7 @@ branches:
 addons:
   sonarcloud:
     organization: "qinyuanpei-github" 
-    token: 2ece8592b671986b4dd2ad3bc4a4ec6eaee60a0d
+    token: db795a28468dc7c12805b330afed53d362fdd2d9
     
 cache:
   directories:
